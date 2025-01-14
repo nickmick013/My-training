@@ -8,9 +8,9 @@ directory = '.'
 for root, dirs, files in os.walk(directory):
   for file in files:
 
-
-    try:
         filepath = os.path.join(root, file)
+
+try:
         filetime = os.path.getmtime(filepath)
         formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
         file_size = os.path.getsize(filepath)
@@ -19,7 +19,7 @@ for root, dirs, files in os.walk(directory):
         print(f'Обнаружен файл: {file}, Путь: {filepath}, Размер: {file_size} байт,'
           f' Время изменения: {formatted_time}, Родительская директория: {parent_dir}')
 
-    except FileNotFoundError:
+except FileNotFoundError:
         print(f'Файл {file} недоступен или был удален')
 
 
